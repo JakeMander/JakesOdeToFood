@@ -62,7 +62,7 @@ namespace OdeToFood.Data
         public IEnumerable<Restaurant> GetAll()
         {
             return  from r in _restaurants
-                    orderby r.Name
+                    orderby r.Id
                     select r;
 
         }
