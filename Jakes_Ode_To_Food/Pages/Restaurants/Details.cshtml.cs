@@ -11,10 +11,10 @@ namespace Jakes_Ode_To_Food.Pages.Restaurants
     public class DetailsModel : PageModel
     {
         public Restaurant Restaurant { get; set; }   
-        public void OnGet(int restaurauntId)
+        public void OnGet(int restaurantId)
         {
             Restaurant = new Restaurant();
-            Restaurant.Id = restaurauntId;
+            Restaurant.Id = restaurantId;
         }
     }
 }

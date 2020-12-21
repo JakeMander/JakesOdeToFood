@@ -16,7 +16,6 @@ namespace Jakes_Ode_To_Food.Pages.Restaurants
         private readonly IConfiguration _config;
         private readonly IRestaurantData _restaurantData;
 
-        
         public string Message { get; set; }
         public IEnumerable<Restaurant> Restaurants { get; set; }
         [BindProperty(SupportsGet = true)]
