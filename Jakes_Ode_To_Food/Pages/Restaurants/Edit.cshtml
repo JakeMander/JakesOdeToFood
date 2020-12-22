@@ -1,6 +1,6 @@
 ﻿@page
 
-@{ 
+@{
     ViewData["Title"] = "Edit Restaurant";
 }
 
@@ -10,4 +10,32 @@
 @{
     <h1>Edit Restaurant</h1>
     <h2>@Model.Restaurant.Name</h2>
+
+    <form method="post">
+        <input type="hidden" asp-for="Restaurant.Id" />
+
+        <div class="form-group">
+            <label asp-for="Restaurant.Name"></label>
+            <input asp-for="Restaurant.Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Restaurant.Location"></label>
+            <input asp-for="Restaurant.Location" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Restaurant.Cuisine"></label>
+            <select asp-for="Restaurant.Cuisine" asp-items="Model.Cuisines" class="form-control"></select>
+        </div>
+
+
+        <span>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </span>
+
+        <span>
+            <a asp-page="./List" class="btn btn-primary">Back</a>
+        </span>
+    </form>
 }

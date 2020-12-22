@@ -32,7 +32,6 @@ namespace Jakes_Ode_To_Food.Pages.Restaurants
         {
             Message = _config["Message"];
             Restaurants = _restaurantData.GetAllRestaurantsByName(SearchTerm);
-
         }
         
     }
