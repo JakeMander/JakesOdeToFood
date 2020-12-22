@@ -1,6 +1,7 @@
 ﻿@page
 @model Jakes_Ode_To_Food.Pages.Restaurants.ListModel
 @{
+    ViewData["Title"] = "View Restaurants";
 }
 
 <h1>Restaurants</h1>
@@ -35,9 +36,15 @@
             <td>@restaurant.Cuisine</td>
             <td>
                 <a class="btn btn-lg"
-                   asp-page="./Details" 
-                   asp-route-restaurantId ="@restaurant.Id">
-                    <span><i class ="fas fa-search-plus"></i></span>
+                   asp-page="./Details"
+                   asp-route-restaurantId="@restaurant.Id">
+                    <span><i class="fas fa-search-plus"></i></span>
+                </a>
+                
+                <a class="btn btn-lg"
+                   asp-page="./Edit"
+                   asp-route-restaurantId="@restaurant.Id">
+                    <span><i class="fas fa-edit"></i></span>
                 </a>
             </td>
         </tr>

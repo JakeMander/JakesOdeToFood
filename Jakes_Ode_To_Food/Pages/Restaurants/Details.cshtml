@@ -1,7 +1,7 @@
 ﻿@page "{restaurantId:int}"
 @model Jakes_Ode_To_Food.Pages.Restaurants.DetailsModel
 @{
-    ViewData["Title"] = "Detail";
+    ViewData["Title"] = Model.Restaurant.Name;
 }
 
 <h2>@Model.Restaurant.Name</h2>
