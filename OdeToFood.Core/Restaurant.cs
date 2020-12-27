@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace OdeToFood.Core
@@ -14,7 +15,11 @@ namespace OdeToFood.Core
         /// Such As The Name, Where It Is Based And What Food It Serves To Get Customers
         /// Visiting. 
         /// </summary>
+        /// 
+
+        [Required, StringLength(80)]
         public string Name { get; set; }
+        [Required, StringLength(80)]
         public string Location { get; set; }
         public CuisineType Cuisine { get; set; }
     }
