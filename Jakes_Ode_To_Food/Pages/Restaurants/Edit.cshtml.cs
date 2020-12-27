@@ -15,6 +15,7 @@ namespace Jakes_Ode_To_Food.Pages.Restaurants
         private readonly IRestaurantData _restaurantData;
         private readonly IHtmlHelper _htmlHelper;
 
+        [BindProperty]
         public Restaurant Restaurant { get; set; }
 
         public IEnumerable<SelectListItem> Cuisines { get; set; }
@@ -32,6 +33,14 @@ namespace Jakes_Ode_To_Food.Pages.Restaurants
             if (Restaurant == null)
                 return RedirectToPage("./NotFound");
             
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            _restaurantData.Update(Restaurant);
+            _restaurantData.Commit();
+
             return Page();
         }
     }

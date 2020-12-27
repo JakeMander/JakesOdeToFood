@@ -10,6 +10,8 @@ namespace OdeToFood.Data
     {
         IEnumerable<Restaurant> GetAllRestaurantsByName(string name);
         Restaurant GetRestaurantById(int id);
+        Restaurant Update(Restaurant updatedRestaurant);
+        int Commit();
     }
 
     public class InMemoryRestaurantData : IRestaurantData
@@ -58,6 +60,12 @@ namespace OdeToFood.Data
             };
         }
 
+        //  Dummy implementation that will suffice until we implement the Entity Framework.
+        public int Commit()
+        {
+            return 0;
+        }
+
         //  Method to Return Our List of Restaurants From The List In A Sorted
         //  By Name Format.
         public IEnumerable<Restaurant> GetAllRestaurantsByName(string name)
@@ -72,6 +80,23 @@ namespace OdeToFood.Data
         public Restaurant GetRestaurantById(int id)
         {
             return _restaurants.SingleOrDefault(r => r.Id == id);
+        }
+
+        public Restaurant Update(Restaurant updatedRestaurant)
+        {
+            var restaurant = _restaurants.SingleOrDefault<Restaurant>(r => r.Id == updatedRestaurant.Id);
+            
+            //  In the event we find a match with the incoming ID, simply copy over the values to the restaurant object we
+            //  extract from the list.
+            if (restaurant != null)
+            {
+                restaurant.Name = updatedRestaurant.Name;
+                restaurant.Location = updatedRestaurant.Location;
+                restaurant.Cuisine = updatedRestaurant.Cuisine;
+            }
+
+            //  Pass our update restauraunt instance back to the model so we can then update the view with the new details.
+            return restaurant;
         }
     }
 }
