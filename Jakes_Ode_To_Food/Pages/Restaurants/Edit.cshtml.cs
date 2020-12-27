@@ -38,9 +38,12 @@ namespace Jakes_Ode_To_Food.Pages.Restaurants
 
         public IActionResult OnPost()
         {
+            if (ModelState.IsValid)
+            {
+                _restaurantData.Update(Restaurant);
+                _restaurantData.Commit();
+            }
             Cuisines = _htmlHelper.GetEnumSelectList<Restaurant.CuisineType>();
-            _restaurantData.Update(Restaurant);
-            _restaurantData.Commit();
 
             return Page();
         }

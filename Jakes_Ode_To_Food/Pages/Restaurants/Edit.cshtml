@@ -4,8 +4,6 @@
     ViewData["Title"] = "Edit Restaurant";
 }
 
-<!-- "{restaurantId:int}" -->
-
 @model Jakes_Ode_To_Food.Pages.Restaurants.EditModel
 @{
     <h1>Edit Restaurant</h1>
@@ -17,18 +15,20 @@
         <div class="form-group">
             <label asp-for="Restaurant.Name"></label>
             <input asp-for="Restaurant.Name" class="form-control" />
+            <span class="text-danger" asp-validation-for="Restaurant.Name"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Restaurant.Location"></label>
             <input asp-for="Restaurant.Location" class="form-control" />
+            <span class="text-danger" asp-validation-for="Restaurant.Location"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Restaurant.Cuisine"></label>
             <select asp-for="Restaurant.Cuisine" asp-items="Model.Cuisines" class="form-control"></select>
+            <span class="text-danger" asp-validation-for="Restaurant.Cuisine"></span>
         </div>
-
 
         <span>
             <button type="submit" class="btn btn-primary">Save</button>
